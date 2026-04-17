@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ArrowRight, Flower, FlowerLotus, FlowerTulip } from '@phosphor-icons/react';
+import { ArrowRight } from '@phosphor-icons/react';
 import { Container } from '@/components/ui/Container';
 import { Button } from '@/components/ui/Button';
 import { SIGN_IN_URL, SIGN_UP_URL } from '@/lib/config';
@@ -29,37 +29,8 @@ export function Hero() {
               className="flex flex-col lg:col-span-7"
             >
               <h1 className="t-display max-w-[720px]">
-                Run
-                <motion.span
-                  aria-hidden
-                  className="mx-2 inline-block align-middle text-[var(--accent-base)]"
-                  animate={{ rotate: [0, 360] }}
-                  transition={{ duration: 14, repeat: Infinity, ease: 'linear' }}
-                >
-                  <Flower size={34} weight="duotone" />
-                </motion.span>
-                your staffing
-                <motion.span
-                  aria-hidden
-                  className="mx-2 inline-block align-middle text-[var(--accent-hover)]"
-                  animate={{ y: [0, -4, 0], rotate: [-6, 6, -6] }}
-                  transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
-                >
-                  <FlowerTulip size={32} weight="duotone" />
-                </motion.span>
-                business{' '}
-                <em>
-                  with
-                  <motion.span
-                    aria-hidden
-                    className="mx-2 inline-block align-middle text-[var(--accent-base)]"
-                    animate={{ scale: [1, 1.12, 1], rotate: [0, 8, 0] }}
-                    transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
-                  >
-                    <FlowerLotus size={32} weight="duotone" />
-                  </motion.span>
-                  confidence.
-                </em>
+                Run your staffing business{' '}
+                <em>with confidence.</em>
               </h1>
 
               <hr className="rule mt-7 w-[56px]" />
