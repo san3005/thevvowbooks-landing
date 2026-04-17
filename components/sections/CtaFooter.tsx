@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ArrowRight } from '@phosphor-icons/react';
+import { ArrowRight, FlowerTulip, Flower } from '@phosphor-icons/react';
 import { Container } from '@/components/ui/Container';
 import { Button } from '@/components/ui/Button';
 import { SIGN_UP_URL } from '@/lib/config';
@@ -49,7 +49,16 @@ export function CtaFooter() {
                 color: 'var(--ink)',
               }}
             >
-              Ready to{' '}
+              Ready
+              <motion.span
+                aria-hidden
+                className="mx-3 inline-block align-middle text-[var(--accent-base)]"
+                animate={{ rotate: [0, 360] }}
+                transition={{ duration: 16, repeat: Infinity, ease: 'linear' }}
+              >
+                <Flower size={44} weight="duotone" />
+              </motion.span>
+              to{' '}
               <em
                 style={{
                   fontWeight: 450,
@@ -57,7 +66,15 @@ export function CtaFooter() {
                 }}
               >
                 ship cleaner
-              </em>{' '}
+              </em>
+              <motion.span
+                aria-hidden
+                className="mx-3 inline-block align-middle text-[var(--accent-hover)]"
+                animate={{ y: [0, -6, 0], rotate: [-8, 8, -8] }}
+                transition={{ duration: 6.5, repeat: Infinity, ease: 'easeInOut' }}
+              >
+                <FlowerTulip size={40} weight="duotone" />
+              </motion.span>
               staffing{' '}
               <span className="relative inline-block">
                 <em
