@@ -2,39 +2,39 @@
 
 /* ────────────────────────────────────────────────────────────
    theVvowBooks landing — editorial light token system
-   Slate + teal accent, with cream paper surface for editorial
-   feel. Light by default; .dark variant retained but unused.
+   Slate + wisteria accent, with lavender-tinted paper surface
+   for editorial feel. Light by default; .dark variant retained.
    ──────────────────────────────────────────────────────────── */
 
 :root {
   /* Surfaces */
-  --page:            #FAFAFA;
+  --page:            #FBF9FD;
   --surface:         #FFFFFF;
-  --surface-subtle:  #F4F4F3;
-  --surface-sunken:  #EEEEEC;
-  --surface-cream:   #FBF7F0;   /* magazine-paper warm cream */
-  --surface-inverse: #0B0B0C;
+  --surface-subtle:  #F5F1F8;
+  --surface-sunken:  #EDE6F2;
+  --surface-cream:   #F7F1FB;   /* lavender-tinted paper surface */
+  --surface-inverse: #0F0B14;
 
   /* Borders */
-  --border-hairline: #EBEBE9;
-  --border-default:  #D8D7D3;
-  --border-strong:   #A8A6A0;
+  --border-hairline: #ECE4F2;
+  --border-default:  #D9CEE4;
+  --border-strong:   #A89CB5;
 
   /* Text */
-  --text-primary:    #0B0B0C;
-  --text-secondary:  #2A2A2A;
-  --text-tertiary:   #6B6B6B;
-  --text-quiet:      #9A9A98;
-  --text-disabled:   #C7C6C2;
-  --ink:             #14110F;   /* slightly richer ink for editorial display */
+  --text-primary:    #1A1424;
+  --text-secondary:  #332A42;
+  --text-tertiary:   #6B6275;
+  --text-quiet:      #9A91A5;
+  --text-disabled:   #C7BED2;
+  --ink:             #1C1427;   /* rich plum-ink for editorial display */
 
-  /* Accent — teal */
-  --accent-base:     #0D9488;
-  --accent-hover:    #0F766E;
-  --accent-pressed:  #115E59;
-  --accent-quiet:    #F0FDFA;
+  /* Accent — wisteria */
+  --accent-base:     #9B7FD4;
+  --accent-hover:    #7E60C2;
+  --accent-pressed:  #6747A8;
+  --accent-quiet:    #F4EEFB;
   --accent-on:       #FFFFFF;
-  --accent-warm:     #F4C48C;   /* one-time editorial peach for orbs/halftone */
+  --accent-warm:     #E8C8DE;   /* pale mauve for editorial orbs/halftone */
 
   /* Status */
   --success:         #15803D;
@@ -78,27 +78,27 @@
 }
 
 .dark {
-  --page:            #0A0A0B;
-  --surface:         #131315;
-  --surface-subtle:  #1A1A1D;
-  --surface-sunken:  #08080A;
-  --surface-inverse: #F4F4F3;
+  --page:            #0C0A12;
+  --surface:         #15111C;
+  --surface-subtle:  #1D1828;
+  --surface-sunken:  #0A0810;
+  --surface-inverse: #F4F0F8;
 
-  --border-hairline: #1F1F22;
-  --border-default:  #2A2A2E;
-  --border-strong:   #4A4A4F;
+  --border-hairline: #231D30;
+  --border-default:  #2E2740;
+  --border-strong:   #504863;
 
-  --text-primary:    #F4F4F3;
-  --text-secondary:  #C2C2BF;
-  --text-tertiary:   #8A8A86;
-  --text-quiet:      #5E5E5C;
-  --text-disabled:   #3A3A3D;
+  --text-primary:    #F4F0F8;
+  --text-secondary:  #C6BED2;
+  --text-tertiary:   #8A8296;
+  --text-quiet:      #5E5868;
+  --text-disabled:   #3A3648;
 
-  --accent-base:     #14B8A6;
-  --accent-hover:    #2DD4BF;
-  --accent-pressed:  #0D9488;
-  --accent-quiet:    #042F2E;
-  --accent-on:       #0A0A0B;
+  --accent-base:     #B8A0E8;
+  --accent-hover:    #C9B5F0;
+  --accent-pressed:  #9B7FD4;
+  --accent-quiet:    #2A1E42;
+  --accent-on:       #0C0A12;
 
   --success:         #4ADE80;
   --success-quiet:   #052E16;
@@ -275,7 +275,7 @@ body {
 /* ─── Backgrounds & decorative ──────────────────────────────── */
 
 .bg-dotgrid {
-  background-image: radial-gradient(circle, rgba(11, 11, 12, 0.07) 1px, transparent 1px);
+  background-image: radial-gradient(circle, rgba(26, 20, 36, 0.07) 1px, transparent 1px);
   background-size: 24px 24px;
   background-position: 0 0;
   -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 40%, #000 35%, transparent 95%);
@@ -292,8 +292,8 @@ body {
   pointer-events: none;
   z-index: 0;
   background:
-    radial-gradient(ellipse 50% 40% at 14% 22%, rgba(13, 148, 136, 0.10) 0%, transparent 60%),
-    radial-gradient(ellipse 40% 35% at 86% 76%, rgba(244, 196, 140, 0.18) 0%, transparent 60%);
+    radial-gradient(ellipse 50% 40% at 14% 22%, rgba(155, 127, 212, 0.14) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 35% at 86% 76%, rgba(232, 200, 222, 0.20) 0%, transparent 60%);
   filter: blur(40px);
   animation: orb-drift 24s ease-in-out infinite alternate;
 }
@@ -324,10 +324,10 @@ body {
 /* Mesh gradient backdrop (CTA only) */
 .mesh-backdrop {
   background:
-    radial-gradient(ellipse 60% 50% at 18% 28%, rgba(20, 184, 166, 0.18) 0%, transparent 60%),
-    radial-gradient(ellipse 55% 45% at 82% 72%, rgba(99, 102, 241, 0.10) 0%, transparent 65%),
-    radial-gradient(ellipse 40% 40% at 60% 20%, rgba(244, 114, 182, 0.06) 0%, transparent 60%),
-    #0A0A0B;
+    radial-gradient(ellipse 60% 50% at 18% 28%, rgba(155, 127, 212, 0.22) 0%, transparent 60%),
+    radial-gradient(ellipse 55% 45% at 82% 72%, rgba(184, 160, 232, 0.14) 0%, transparent 65%),
+    radial-gradient(ellipse 40% 40% at 60% 20%, rgba(232, 200, 222, 0.10) 0%, transparent 60%),
+    #0C0A12;
 }
 
 /* Noise grain overlay — lowered to 0.025 for cream/light surfaces */

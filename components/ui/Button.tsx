@@ -11,7 +11,7 @@ const variants: Record<Variant, string> = {
   ghost:
     'bg-transparent text-[var(--text-primary)] hover:bg-[var(--surface-subtle)] border border-[var(--border-hairline)]',
   invert:
-    'bg-white text-[#0B0B0C] hover:bg-white/90 shadow-[var(--shadow-md)]',
+    'bg-white text-[var(--text-primary)] hover:bg-white/90 shadow-[var(--shadow-md)]',
 };
 
 type CommonProps = {
