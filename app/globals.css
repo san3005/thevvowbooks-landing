@@ -1,8 +1,9 @@
 @import "tailwindcss";
 
 /* ────────────────────────────────────────────────────────────
-   theVvowBooks landing — token system mirrored from main app
-   Slate + teal accent. Light by default; .dark variant included.
+   theVvowBooks landing — editorial light token system
+   Slate + teal accent, with cream paper surface for editorial
+   feel. Light by default; .dark variant retained but unused.
    ──────────────────────────────────────────────────────────── */
 
 :root {
@@ -11,6 +12,7 @@
   --surface:         #FFFFFF;
   --surface-subtle:  #F4F4F3;
   --surface-sunken:  #EEEEEC;
+  --surface-cream:   #FBF7F0;   /* magazine-paper warm cream */
   --surface-inverse: #0B0B0C;
 
   /* Borders */
@@ -24,6 +26,7 @@
   --text-tertiary:   #6B6B6B;
   --text-quiet:      #9A9A98;
   --text-disabled:   #C7C6C2;
+  --ink:             #14110F;   /* slightly richer ink for editorial display */
 
   /* Accent — teal */
   --accent-base:     #0D9488;
@@ -31,6 +34,7 @@
   --accent-pressed:  #115E59;
   --accent-quiet:    #F0FDFA;
   --accent-on:       #FFFFFF;
+  --accent-warm:     #F4C48C;   /* one-time editorial peach for orbs/halftone */
 
   /* Status */
   --success:         #15803D;
@@ -136,7 +140,170 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Glass card — frosted surface with inner highlight */
+/* ─── Editorial type scale ─────────────────────────────────── */
+
+.t-display {
+  font-family: var(--font-fraunces), 'Fraunces', Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(40px, 7vw, 88px);
+  line-height: 0.98;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  font-variation-settings: "SOFT" 100, "opsz" 144;
+}
+
+.t-h2 {
+  font-family: var(--font-fraunces), 'Fraunces', Georgia, serif;
+  font-weight: 500;
+  font-size: clamp(32px, 4.5vw, 56px);
+  line-height: 1.0;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+  font-variation-settings: "SOFT" 50, "opsz" 72;
+}
+
+.t-h3 {
+  font-family: var(--font-fraunces), 'Fraunces', Georgia, serif;
+  font-weight: 500;
+  font-size: clamp(20px, 2.4vw, 26px);
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+  font-variation-settings: "SOFT" 50, "opsz" 36;
+}
+
+.t-quote {
+  font-family: var(--font-fraunces), 'Fraunces', Georgia, serif;
+  font-weight: 400;
+  font-style: italic;
+  font-size: clamp(20px, 2.2vw, 28px);
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  font-variation-settings: "SOFT" 50, "opsz" 36;
+}
+
+.t-lead {
+  font-family: var(--font-geist-sans), 'Geist', system-ui, sans-serif;
+  font-weight: 400;
+  font-size: clamp(17px, 1.4vw, 20px);
+  line-height: 1.55;
+  letter-spacing: -0.005em;
+  color: var(--text-tertiary);
+}
+
+.t-body {
+  font-family: var(--font-geist-sans), 'Geist', system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.t-meta {
+  font-family: var(--font-geist-mono), ui-monospace, SFMono-Regular, monospace;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 1.4;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+}
+
+.t-caption {
+  font-family: var(--font-geist-sans), 'Geist', system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: var(--text-tertiary);
+}
+
+/* Italic for headline emphasis — gets a slight weight bump so it doesn't recede */
+.t-display em,
+.t-h2 em,
+.t-h3 em {
+  font-style: italic;
+  font-weight: 450;
+  font-variation-settings: "SOFT" 100, "opsz" 144;
+}
+
+/* ─── Editorial ornaments ──────────────────────────────────── */
+
+.rule {
+  height: 1px;
+  background: var(--border-hairline);
+  border: 0;
+}
+
+.rule-double {
+  height: 5px;
+  background: linear-gradient(
+    to bottom,
+    var(--border-default) 0,
+    var(--border-default) 1px,
+    transparent 1px,
+    transparent 4px,
+    var(--border-default) 4px,
+    var(--border-default) 5px
+  );
+  border: 0;
+}
+
+.section-num {
+  font-family: var(--font-geist-mono), ui-monospace, SFMono-Regular, monospace;
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.section-num::before {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 1px;
+  background: var(--accent-base);
+  margin-right: 4px;
+  vertical-align: middle;
+}
+
+/* ─── Backgrounds & decorative ──────────────────────────────── */
+
+.bg-dotgrid {
+  background-image: radial-gradient(circle, rgba(11, 11, 12, 0.07) 1px, transparent 1px);
+  background-size: 24px 24px;
+  background-position: 0 0;
+  -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 40%, #000 35%, transparent 95%);
+          mask-image: radial-gradient(ellipse 70% 70% at 50% 40%, #000 35%, transparent 95%);
+}
+
+.light-orbs {
+  position: relative;
+}
+.light-orbs::before {
+  content: '';
+  position: absolute;
+  inset: -10%;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse 50% 40% at 14% 22%, rgba(13, 148, 136, 0.10) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 35% at 86% 76%, rgba(244, 196, 140, 0.18) 0%, transparent 60%);
+  filter: blur(40px);
+  animation: orb-drift 24s ease-in-out infinite alternate;
+}
+
+@keyframes orb-drift {
+  0%   { transform: translate3d(0, 0, 0) scale(1); }
+  100% { transform: translate3d(2%, -1.5%, 0) scale(1.04); }
+}
+
+/* Glass card — frosted surface (kept for any dark-bg use cases) */
 .glass-card {
   background: linear-gradient(
     135deg,
@@ -154,16 +321,16 @@ body {
     0 0 0 1px rgba(255, 255, 255, 0.03) inset;
 }
 
-/* Mesh gradient backdrop */
+/* Mesh gradient backdrop (CTA only) */
 .mesh-backdrop {
   background:
-    radial-gradient(ellipse 60% 50% at 18% 28%, rgba(20, 184, 166, 0.14) 0%, transparent 60%),
-    radial-gradient(ellipse 55% 45% at 82% 72%, rgba(99, 102, 241, 0.08) 0%, transparent 65%),
-    radial-gradient(ellipse 40% 40% at 60% 20%, rgba(244, 114, 182, 0.04) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 18% 28%, rgba(20, 184, 166, 0.18) 0%, transparent 60%),
+    radial-gradient(ellipse 55% 45% at 82% 72%, rgba(99, 102, 241, 0.10) 0%, transparent 65%),
+    radial-gradient(ellipse 40% 40% at 60% 20%, rgba(244, 114, 182, 0.06) 0%, transparent 60%),
     #0A0A0B;
 }
 
-/* Noise grain overlay */
+/* Noise grain overlay — lowered to 0.025 for cream/light surfaces */
 .noise-overlay {
   position: relative;
 }
@@ -172,13 +339,39 @@ body {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  opacity: 0.04;
+  opacity: 0.025;
   mix-blend-mode: overlay;
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.9'/></svg>");
   z-index: 0;
 }
+.noise-overlay--strong::before {
+  opacity: 0.05;
+}
 
-/* Press feedback for buttons */
+/* ─── Marquee (CSS-only auto-scroll) ────────────────────────── */
+
+.marquee {
+  overflow: hidden;
+  position: relative;
+  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 8%, #000 92%, transparent 100%);
+          mask-image: linear-gradient(to right, transparent 0, #000 8%, #000 92%, transparent 100%);
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 38s linear infinite;
+  will-change: transform;
+}
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+@keyframes marquee {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-50%, 0, 0); }
+}
+
+/* ─── Buttons & details ─────────────────────────────────────── */
+
 .btn-press {
   transition:
     transform var(--motion-fast) var(--ease-out),
@@ -189,7 +382,7 @@ body {
   transform: scale(0.98);
 }
 
-/* Mono eyebrow */
+/* Mono eyebrow (kept for back-compat) */
 .eyebrow {
   font-family: var(--font-geist-mono), ui-monospace, SFMono-Regular, monospace;
   font-size: 11px;

@@ -37,36 +37,75 @@ const items: FaqItem[] = [
 
 export function Faq() {
   return (
-    <section id="faq" className="py-24 md:py-32 bg-[var(--surface-subtle)]">
+    <section id="faq" className="bg-[var(--surface-subtle)] py-24 md:py-32">
       <Container>
-        <div className="mx-auto mb-14 max-w-[640px] text-center md:mb-20">
-          <span className="eyebrow">FAQ</span>
-          <h2 className="mt-4 font-semibold tracking-[-0.025em] leading-[1.1] text-[var(--text-primary)] text-[28px] md:text-[40px]">
-            Questions, answered.
-          </h2>
-        </div>
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-14">
+          {/* Sticky aside */}
+          <aside className="lg:col-span-5">
+            <div className="lg:sticky lg:top-24">
+              <span className="section-num">FAQ</span>
+              <hr className="rule-double mt-4 w-[80px]" />
+              <h2 className="t-h2 mt-6">
+                Questions, <em>answered.</em>
+              </h2>
+              <p className="t-body mt-6 max-w-[380px] text-[var(--text-tertiary)]">
+                The things teams ask us most, before they spin up a workspace.
+                Still curious?{' '}
+                <a
+                  href="mailto:hello@thevowbooks.com"
+                  className="underline decoration-[var(--border-default)] underline-offset-4 hover:text-[var(--text-primary)]"
+                >
+                  Get in touch
+                </a>
+                .
+              </p>
+            </div>
+          </aside>
 
-        <div className="mx-auto max-w-3xl overflow-hidden rounded-[14px] bg-[var(--surface)] shadow-[var(--shadow-sm)]">
-          {items.map((item, i) => (
-            <details
-              key={item.q}
-              className={`group ${i > 0 ? 'border-t border-[var(--border-hairline)]' : ''}`}
-            >
-              <summary className="flex items-center justify-between gap-6 px-6 py-5 transition-colors duration-[140ms] ease-[var(--ease-notion)] hover:bg-[var(--surface-subtle)]">
-                <span className="text-[15px] font-medium text-[var(--text-primary)]">
-                  {item.q}
-                </span>
-                <span className="faq-icon flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-[var(--text-tertiary)]">
-                  <Plus size={16} weight="regular" />
-                </span>
-              </summary>
-              <div className="px-6 pb-5">
-                <p className="text-[14px] leading-[1.65] text-[var(--text-tertiary)]">
-                  {item.a}
-                </p>
-              </div>
-            </details>
-          ))}
+          {/* Q&A list */}
+          <div className="lg:col-span-7">
+            <hr className="rule-double mb-2" />
+            <ol className="flex flex-col">
+              {items.map((item, i) => (
+                <li
+                  key={item.q}
+                  className="border-b border-[var(--border-hairline)] last:border-b-0"
+                >
+                  <details className="group">
+                    <summary className="flex cursor-pointer items-start gap-5 py-6">
+                      <span
+                        className="mt-1.5 shrink-0 text-[12px] tabular-nums text-[var(--text-quiet)]"
+                        style={{
+                          fontFamily: 'var(--font-geist-mono), monospace',
+                        }}
+                      >
+                        {String(i + 1).padStart(2, '0')}
+                      </span>
+                      <span
+                        className="flex-1 text-[20px] leading-[1.35] tracking-[-0.01em] text-[var(--ink)] md:text-[22px]"
+                        style={{
+                          fontFamily: 'var(--font-fraunces), Georgia, serif',
+                          fontStyle: 'italic',
+                          fontWeight: 450,
+                        }}
+                      >
+                        {item.q}
+                      </span>
+                      <span className="faq-icon mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-[var(--border-default)] text-[var(--text-tertiary)]">
+                        <Plus size={12} weight="regular" />
+                      </span>
+                    </summary>
+                    <div className="pb-6 pl-[calc(12px+20px)] pr-10">
+                      <p className="t-body max-w-[56ch] text-[var(--text-secondary)]">
+                        {item.a}
+                      </p>
+                    </div>
+                  </details>
+                </li>
+              ))}
+            </ol>
+            <hr className="rule-double mt-2" />
+          </div>
         </div>
       </Container>
     </section>

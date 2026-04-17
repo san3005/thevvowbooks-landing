@@ -35,11 +35,27 @@ export function Header() {
       <Container>
         <div className="flex h-16 items-center justify-between gap-6">
           <a href="#top" className="flex items-center gap-2.5">
-            <div className="flex h-7 w-7 items-center justify-center rounded-[6px] bg-[var(--text-primary)] text-[var(--surface)] text-[13px] font-bold">
+            <div
+              className="flex h-7 w-7 items-center justify-center rounded-[6px] bg-[var(--text-primary)] text-[var(--surface)] text-[14px] font-semibold"
+              style={{
+                fontFamily: 'var(--font-fraunces), Georgia, serif',
+                fontStyle: 'italic',
+              }}
+            >
               V
             </div>
             <span className="text-[14px] font-semibold tracking-[-0.01em] text-[var(--text-primary)]">
-              theVvowBooks
+              the
+              <span
+                style={{
+                  fontFamily: 'var(--font-fraunces), Georgia, serif',
+                  fontStyle: 'italic',
+                  fontWeight: 500,
+                }}
+              >
+                Vow
+              </span>
+              Books
             </span>
           </a>
 
@@ -48,7 +64,10 @@ export function Header() {
               <a
                 key={link.href}
                 href={link.href}
-                className="rounded-[8px] px-3 py-2 text-[13px] font-medium text-[var(--text-tertiary)] transition-colors duration-[140ms] ease-[var(--ease-notion)] hover:bg-[var(--surface-subtle)] hover:text-[var(--text-primary)]"
+                className="rounded-[8px] px-3 py-2 text-[11px] font-medium uppercase tracking-[0.08em] text-[var(--text-tertiary)] transition-colors duration-[140ms] ease-[var(--ease-notion)] hover:bg-[var(--surface-subtle)] hover:text-[var(--text-primary)]"
+                style={{
+                  fontFamily: 'var(--font-geist-mono), monospace',
+                }}
               >
                 {link.label}
               </a>
