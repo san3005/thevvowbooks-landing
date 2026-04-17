@@ -8,11 +8,11 @@
 
 :root {
   /* Surfaces */
-  --page:            #FBF9FD;
+  --page:            #FAF8FC;   /* cool near-white, whisper of lavender */
   --surface:         #FFFFFF;
-  --surface-subtle:  #F5F1F8;
-  --surface-sunken:  #EDE6F2;
-  --surface-cream:   #F7F1FB;   /* lavender-tinted paper surface */
+  --surface-subtle:  #F2ECF7;
+  --surface-sunken:  #E8E0F0;
+  --surface-cream:   #FAF0F4;   /* warm mauve-pink paper — complement to wisteria */
   --surface-inverse: #0F0B14;
 
   /* Borders */
@@ -292,8 +292,8 @@ body {
   pointer-events: none;
   z-index: 0;
   background:
-    radial-gradient(ellipse 50% 40% at 14% 22%, rgba(155, 127, 212, 0.14) 0%, transparent 60%),
-    radial-gradient(ellipse 40% 35% at 86% 76%, rgba(232, 200, 222, 0.20) 0%, transparent 60%);
+    radial-gradient(ellipse 50% 40% at 14% 22%, rgba(155, 127, 212, 0.16) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 35% at 86% 76%, rgba(232, 168, 198, 0.22) 0%, transparent 60%);
   filter: blur(40px);
   animation: orb-drift 24s ease-in-out infinite alternate;
 }
